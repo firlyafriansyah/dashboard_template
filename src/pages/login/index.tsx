@@ -24,7 +24,32 @@ export default function Login() {
 
   const loginHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(username.values, password.values);
+    if (!username.values && !password.values) {
+      setUsername({
+        values: '',
+        error: true,
+        errorMessage: 'Username is required',
+      });
+      setPassword({
+        values: '',
+        error: true,
+        errorMessage: 'Password is required',
+      });
+    } else if (!username.values) {
+      setUsername({
+        values: '',
+        error: true,
+        errorMessage: 'Username is required',
+      });
+    } else if (!password.values) {
+      setPassword({
+        values: '',
+        error: true,
+        errorMessage: 'Password is required',
+      });
+    } else {
+      console.log(username.values, password.values);
+    }
   };
 
   return (
