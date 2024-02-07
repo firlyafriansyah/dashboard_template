@@ -1,8 +1,8 @@
 import * as React from 'react';
 import LogoDefault from '@/assets/Logo';
 import Input from '@/components/custom/input';
-import InputPassword from '@/components/custom/input-password';
 import { Button } from '@/components/ui/button';
+import InputPassword from '@/components/custom/input-password';
 
 type InputProps = {
   values: string;
