@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import LogoDefault from '@/assets/Logo';
 import Input from '@/components/custom/input';
 import { Button } from '@/components/ui/button';
@@ -11,6 +12,7 @@ type InputProps = {
 };
 
 export default function Login() {
+  const navigate = useNavigate();
   const [username, setUsername] = React.useState<InputProps>({
     values: '',
     error: false,
@@ -48,6 +50,7 @@ export default function Login() {
         errorMessage: 'Password is required',
       });
     } else {
+      navigate('/');
       console.log(username.values, password.values);
     }
   };
