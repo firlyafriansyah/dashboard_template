@@ -71,6 +71,13 @@ module.exports = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      inset: {
+        0: '0px',
+      },
+      boxShadow: {
+        'input-custom': '0px 0px 5px 0px hsl(var(--primary) / 0.5)',
+        'input-error-custom': '0px 0px 5px 0px hsl(var(--destructive) / 0.5)',
+      },
     },
   },
   // eslint-disable-next-line global-require
