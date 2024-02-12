@@ -1,9 +1,9 @@
 import MainLayout from '@/layout/main-layout';
 
-export default function Home() {
+export default function SubGroup1() {
   return (
     <MainLayout>
-      <p>Hello World</p>
+      <p>Sub Group 1</p>
     </MainLayout>
   );
 }

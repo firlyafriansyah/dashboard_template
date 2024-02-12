@@ -1,9 +1,9 @@
 import MainLayout from '@/layout/main-layout';
 
-export default function Home() {
+export default function Transaction() {
   return (
     <MainLayout>
-      <p>Hello World</p>
+      <p>Transaction</p>
     </MainLayout>
   );
 }
