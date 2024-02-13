@@ -6,9 +6,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { useLocation } from 'react-router-dom';
-import AvatarDefault from '@/assets/Image';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SidebarData from '@/data/sidebar';
+import AvatarDefault from '@/assets/Image';
+import SearchDialog from './search-dialog';
 
 type SidebarDataProps = {
   value: string;
@@ -34,6 +35,7 @@ type SidebarItemsProps = {
 };
 
 export default function Header() {
+  const navigate = useNavigate();
   const path = useLocation().pathname;
   const [title, setTitle] = React.useState<string>('');
   const [subTitle, setSubTitle] = React.useState<string>('');
@@ -59,52 +61,18 @@ export default function Header() {
   }, [path]);
 
   return (
-    <div
-      className="
-        flex
-        px-10
-        w-full
-        min-h-24
-        items-center
-        border-b-[1px]
-        justify-between
-      "
-    >
+    <div className="flex px-10 w-full min-h-24 items-center border-b-[1px] justify-between">
       <div>
         <p className="text-2xl">{title}</p>
         <p className="text-sm">{subTitle}</p>
       </div>
       <div className="flex">
-        <div
-          className="
-            w-8
-            h-8
-            flex
-            mr-6
-            border-[1px]
-            rounded-full
-            items-center
-            cursor-pointer
-            justify-center
-            hover:bg-gray-200
-          "
-        >
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </div>
-        <div
-          className="
-            w-8
-            h-8
-            mr-6
-            flex
-            border-[1px]
-            rounded-full
-            items-center
-            cursor-pointer
-            justify-center
-            hover:bg-gray-200
-          "
-        >
+        <SearchDialog navigate={(pathLocal: string) => navigate(pathLocal)}>
+          <div className="w-8 h-8 flex mr-6 border-[1px] rounded-full items-center cursor-pointer justify-center hover:bg-gray-200">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </div>
+        </SearchDialog>
+        <div className="w-8 h-8 mr-6 flex border-[1px] rounded-full items-center cursor-pointer justify-center hover:bg-gray-200">
           <FontAwesomeIcon icon={faBell} />
         </div>
         <div className="flex h-8 border-l-[1px] pl-6 items-center cursor-pointer">
