@@ -1,5 +1,4 @@
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import KebabCaseConversion from '@/utils/kebab-case-conversion';
 import {
   Accordion,
   AccordionContent,
@@ -8,7 +7,7 @@ import {
 } from '../ui/accordion';
 import SidebarItem from './sidebar-item';
 
-type Props = {
+type SidebarGroupItemProps = {
   value: string;
   items: {
     icon: IconDefinition;
@@ -17,9 +16,10 @@ type Props = {
   }[];
   pages: string | undefined;
   navigate: (path: string) => void;
+  group: string;
 };
 
-type ItemProps = {
+type SidebarItemProps = {
   icon: IconDefinition;
   value: string;
   path: string | undefined;
@@ -30,10 +30,11 @@ export default function SidebarGroupItem({
   items,
   pages,
   navigate,
-}: Props) {
+  group,
+}: SidebarGroupItemProps) {
   return (
     <Accordion
-      defaultValue={value}
+      defaultValue={group}
       type="single"
       collapsible
       className="px-4 py-0 rounded-xl hover:bg-gray-100"
@@ -41,13 +42,14 @@ export default function SidebarGroupItem({
       <AccordionItem value={value} className="border-0">
         <AccordionTrigger className="min-h-10">{value}</AccordionTrigger>
         <AccordionContent className="flex flex-col gap-4 py-2">
-          {items.map((item: ItemProps) => (
+          {items.map((item: SidebarItemProps) => (
             <SidebarItem
               key={item.value}
               icon={item.icon}
               value={item.value}
               navigate={() => navigate(item.path || '')}
-              active={pages === KebabCaseConversion(item.value)}
+              active={pages === item.path}
+              group
             />
           ))}
         </AccordionContent>

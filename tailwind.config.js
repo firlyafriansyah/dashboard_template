@@ -71,10 +71,36 @@ module.exports = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'sidebar-items': {
+          from: {
+            width: '0',
+            overflow: 'hidden',
+            opacity: 0,
+          },
+          to: {
+            width: '175px',
+            overflow: 'visible',
+            opacity: 1,
+          },
+        },
+        'sidebar-group-items': {
+          from: {
+            width: '0',
+            overflow: 'hidden',
+            opacity: 0,
+          },
+          to: {
+            width: '143px',
+            overflow: 'visible',
+            opacity: 1,
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'sidebar-items': 'sidebar-items 0.3s ease-out',
+        'sidebar-group-items': 'sidebar-group-items 0.3s ease-out',
       },
       inset: {
         0: '0px',
