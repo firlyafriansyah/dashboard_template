@@ -10,6 +10,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import SidebarData from '@/data/sidebar';
 import AvatarDefault from '@/assets/Image';
 import SearchDialog from './search-dialog';
+import NotificationDropdown from './notification-dropdown';
 
 type SidebarDataProps = {
   value: string;
@@ -72,9 +73,11 @@ export default function Header() {
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </div>
         </SearchDialog>
-        <div className="w-8 h-8 mr-6 flex border-[1px] rounded-full items-center cursor-pointer justify-center hover:bg-gray-200">
-          <FontAwesomeIcon icon={faBell} />
-        </div>
+        <NotificationDropdown>
+          <div className="w-8 h-8 mr-6 flex border-[1px] rounded-full items-center cursor-pointer justify-center hover:bg-gray-200">
+            <FontAwesomeIcon icon={faBell} />
+          </div>
+        </NotificationDropdown>
         <div className="flex h-8 border-l-[1px] pl-6 items-center cursor-pointer">
           <div className="h-8 w-8 mr-2">
             <img src={AvatarDefault} alt="avatar" />
