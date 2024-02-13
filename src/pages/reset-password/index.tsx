@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronLeft,
+  faCircleCheck,
+} from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 import Input from '@/components/custom/input';
 import Textarea from '@/components/custom/textarea';
 import { Button } from '@/components/ui/button';
@@ -12,6 +16,7 @@ type InputProps = {
 };
 
 export default function ResetPassword() {
+  const navigate = useNavigate();
   const [username, setUsername] = React.useState<InputProps>({
     values: '',
     error: false,
@@ -102,7 +107,7 @@ export default function ResetPassword() {
             </div>
           </div>
         ) : (
-          <div className="max-w-[400px] m-5 p-6 border-[1px] rounded-xl bg-white">
+          <div className="max-w-[400px] relative m-5 p-6 border-[1px] rounded-xl bg-white">
             <div className="flex h-14 mb-6 max-[480px]:w-full w-[350px] justify-center">
               <p className="mt-6 text-black-custom text-2xl font-semibold antialiased">
                 Reset Password
@@ -186,6 +191,13 @@ export default function ResetPassword() {
                 </Button>
               </form>
             </div>
+            <Button
+              variant="link"
+              className="p-0 h-auto absolute top-6 left-6"
+              onClick={() => navigate('/login')}
+            >
+              <FontAwesomeIcon icon={faChevronLeft} className="w-4 h-4" />
+            </Button>
           </div>
         )}
       </div>

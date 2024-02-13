@@ -11,6 +11,7 @@ import SidebarData from '@/data/sidebar';
 import AvatarDefault from '@/assets/Image';
 import SearchDialog from './search-dialog';
 import NotificationDropdown from './notification-dropdown';
+import UsersDropdown from './users-dropdown';
 
 type SidebarDataProps = {
   value: string;
@@ -78,13 +79,15 @@ export default function Header() {
             <FontAwesomeIcon icon={faBell} />
           </div>
         </NotificationDropdown>
-        <div className="flex h-8 border-l-[1px] pl-6 items-center cursor-pointer">
-          <div className="h-8 w-8 mr-2">
-            <img src={AvatarDefault} alt="avatar" />
+        <UsersDropdown>
+          <div className="flex h-8 border-l-[1px] pl-6 items-center cursor-pointer">
+            <div className="h-8 w-8 mr-2">
+              <img src={AvatarDefault} alt="avatar" />
+            </div>
+            <p className="text-sm mr-2">Umar Ismail</p>
+            <FontAwesomeIcon width={12} icon={faChevronDown} />
           </div>
-          <p className="text-sm mr-2">Umar Ismail</p>
-          <FontAwesomeIcon width={12} icon={faChevronDown} />
-        </div>
+        </UsersDropdown>
       </div>
     </div>
   );
