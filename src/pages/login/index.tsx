@@ -115,7 +115,7 @@ export default function Login() {
                   type="button"
                   variant="link"
                   className="underline-offset-1"
-                  onClick={() => console.log('Forget Password?')}
+                  onClick={() => navigate('/reset-password')}
                 >
                   <p className="text-sm text-black-custom">Forgot Password?</p>
                 </Button>
