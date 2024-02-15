@@ -6,8 +6,8 @@ type Props = {
 
 export default function SecondaryLayout({ children }: Props) {
   return (
-    <div className="flex w-screen h-screen bg-akarmula">
-      <div className="flex flex-col w-full h-screen">
+    <div className="flex mt-24 bg-seal">
+      <div className="flex flex-col w-full">
         <Header
           titleProps="Notification"
           descriptionProps="Table list of all notifications you received."

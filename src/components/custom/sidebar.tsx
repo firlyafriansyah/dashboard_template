@@ -35,7 +35,7 @@ export default function Sidebar() {
   const pages = useLocation().pathname;
 
   return (
-    <div className="flex flex-col min-w-60 border-r-[1px]">
+    <div className="flex flex-col bg-seal z-[11] h-screen w-60 border-r-[1px] fixed left-0 top-0">
       <Button
         variant="link"
         className="flex p-0 min-h-24 justify-center items-center border-b-[1px] hover:no-underline"

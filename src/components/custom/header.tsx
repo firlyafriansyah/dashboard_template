@@ -83,7 +83,9 @@ export default function Header({
   }, [descriptionProps, path, titleProps, typeProps]);
 
   return (
-    <div className="flex px-10 w-full min-h-24 items-center border-b-[1px] justify-between">
+    <div
+      className={`flex px-10 w-full h-24 ${typeProps === 'main' ? 'pl-[280px]' : 'pl-10'}  backdrop-blur z-[10] bg-transparent items-center border-b-[1px] justify-between fixed top-0 left-0`}
+    >
       <div className="flex items-center gap-8">
         {typeProps === 'secondary' && (
           <Button

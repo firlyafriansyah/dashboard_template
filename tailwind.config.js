@@ -53,9 +53,10 @@ module.exports = {
         },
         'cold-steel': '#F8F7F4',
         'mojito-breeze': '#FBFFF4',
-        akarmula: '#FFFFEF7',
+        akarmula: '#FFFEF7',
         'sea-pearl': '#FFF5EE',
         creme: '#FFF5EA',
+        seal: '#FBFBFB',
       },
       borderRadius: {
         lg: 'var(--radius)',
