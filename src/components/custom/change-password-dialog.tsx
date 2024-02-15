@@ -7,6 +7,7 @@ import {
 } from '../ui/dialog';
 import InputPassword from './input-password';
 import { Button } from '../ui/button';
+import PasswordValidation from '@/utils/password-validation';
 
 type ChangePasswordDialogProps = {
   children: string | JSX.Element | JSX.Element[];
@@ -51,11 +52,12 @@ export default function ChangePasswordDialog({
         error: true,
         errorMessage: 'New password is required',
       });
-    } else if (password.values.length < 8) {
+    } else if (!PasswordValidation(password.values)) {
       setPassword({
         values: '',
         error: true,
-        errorMessage: 'New password must be at least 8 characters',
+        errorMessage:
+          'New passwords must be at least 8 characters long and contain both letters and numbers!',
       });
     } else if (!confirmPassword.values) {
       setConfirmPassword({

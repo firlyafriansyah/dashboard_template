@@ -23,6 +23,7 @@
     "@vitejs/plugin-react": "^4.2.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "dayjs": "^1.11.10",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.3",

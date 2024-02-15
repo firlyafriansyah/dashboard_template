@@ -95,12 +95,34 @@ module.exports = {
             opacity: 1,
           },
         },
+        'header-comp-384': {
+          from: {
+            height: '0',
+            overflow: 'hidden',
+          },
+          to: {
+            height: '384px',
+            overflow: 'visible',
+          },
+        },
+        'header-comp-288': {
+          from: {
+            height: '0',
+            overflow: 'hidden',
+          },
+          to: {
+            height: '288px',
+            overflow: 'visible',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'sidebar-items': 'sidebar-items 0.3s ease-out',
         'sidebar-group-items': 'sidebar-group-items 0.3s ease-out',
+        'header-comp-384': 'header-comp-384 0.3s ease-out',
+        'header-comp-288': 'header-comp-288 0.3s ease-out',
       },
       inset: {
         0: '0px',

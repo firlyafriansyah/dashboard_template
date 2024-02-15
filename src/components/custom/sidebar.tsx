@@ -36,9 +36,13 @@ export default function Sidebar() {
 
   return (
     <div className="flex flex-col min-w-60 border-r-[1px]">
-      <div className="flex min-h-24 justify-center items-center border-b-[1px]">
+      <Button
+        variant="link"
+        className="flex p-0 min-h-24 justify-center items-center border-b-[1px] hover:no-underline"
+        onClick={() => navigate('/dashboard')}
+      >
         <img src={LogoDefault} alt="logo" className="h-14" />
-      </div>
+      </Button>
       <div className="flex flex-col grow overflow-y-auto py-5 px-8 gap-4">
         {SidebarData.map((item: SidebarDataProps) => {
           const findActiveGroup: SidebarItemsProps[] = [];
