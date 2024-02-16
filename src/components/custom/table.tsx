@@ -1,18 +1,11 @@
-import { faChevronDown, faSort, faX } from '@fortawesome/free-solid-svg-icons';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { faChevronDown, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   ColumnDef,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
+  Table as TableProps,
   flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable,
 } from '@tanstack/react-table';
-import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -29,65 +22,28 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import ColumnsData, { ColumnsDataProps } from '@/data/column';
-import TableDataExample, { DataProps } from '@/data/table';
+import PascalToSentences from '@/utils/sentences-conversion';
 import Pagination from './pagination';
 
-const columns: ColumnDef<DataProps>[] = ColumnsData.map(
-  (items: ColumnsDataProps) => ({
-    accessorKey: items.key,
-    header: ({ column }) => (items.sort ? (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        className="p-0"
-      >
-        {items.name}
-        <FontAwesomeIcon icon={faSort} className="ml-2 h-4 w-4" />
-      </Button>
-    ) : (
-      items.name
-    )),
-    cell: ({ row }) => items.cell(row, items.key),
-  }),
-);
+type TableCustomProps = {
+  table: TableProps<any>;
+  globalFilter: string;
+  setGlobalFilter: (e: string) => void;
+  columns: ColumnDef<any>[];
+};
 
-export default function TableCustom() {
-  const [globalFilter, setGlobalFilter] = React.useState('');
-  const [rowSelection, setRowSelection] = React.useState({});
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    [],
-  );
-  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
-
-  const table = useReactTable({
-    data: TableDataExample,
-    columns,
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    onRowSelectionChange: setRowSelection,
-    onGlobalFilterChange: setGlobalFilter,
-    state: {
-      globalFilter,
-      sorting,
-      columnFilters,
-      columnVisibility,
-      rowSelection,
-    },
-  });
-
+export default function TableCustom({
+  table,
+  globalFilter,
+  setGlobalFilter,
+  columns,
+}: TableCustomProps) {
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
         <div className="flex border-[1px] px-2 rounded-lg">
           <Input
-            placeholder="Filter emails..."
+            placeholder="Search..."
             value={globalFilter ?? ''}
             onChange={(event) => setGlobalFilter(String(event.target.value))}
             className="max-w-sm border-0 p-0 h-10 shadow-none focus-visible:ring-0"
@@ -119,7 +75,7 @@ export default function TableCustom() {
                   checked={column.getIsVisible()}
                   onCheckedChange={(value) => column.toggleVisibility(!!value)}
                 >
-                  {column.id}
+                  {PascalToSentences(column.id)}
                 </DropdownMenuCheckboxItem>
               ))}
           </DropdownMenuContent>

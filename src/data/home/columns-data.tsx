@@ -1,11 +1,11 @@
 import { Row } from '@tanstack/react-table';
-import { DataProps } from '@/data/table';
+import { TableDataProps } from '@/data/home/table-data';
 
 export type ColumnsDataProps = {
   key: string;
   name: string;
   sort: boolean;
-  cell: (e: Row<DataProps>, key: string) => JSX.Element;
+  cell: (e: Row<TableDataProps>, key: string) => JSX.Element;
 };
 
 const ColumnsData: ColumnsDataProps[] = [
@@ -13,7 +13,7 @@ const ColumnsData: ColumnsDataProps[] = [
     key: 'data1',
     name: 'Data 1',
     sort: true,
-    cell: (e: Row<DataProps>, key: string) => (
+    cell: (e: Row<TableDataProps>, key: string) => (
       <div className="flex h-9 items-center">
         <div className="capitalize">{e.getValue(key)}</div>
       </div>
@@ -23,7 +23,7 @@ const ColumnsData: ColumnsDataProps[] = [
     key: 'data2',
     name: 'Data 2',
     sort: true,
-    cell: (e: Row<DataProps>, key: string) => (
+    cell: (e: Row<TableDataProps>, key: string) => (
       <div className="flex h-9 items-center">
         <div className="capitalize">{e.getValue(key)}</div>
       </div>
@@ -33,7 +33,7 @@ const ColumnsData: ColumnsDataProps[] = [
     key: 'data3',
     name: 'Data 3',
     sort: true,
-    cell: (e: Row<DataProps>, key: string) => (
+    cell: (e: Row<TableDataProps>, key: string) => (
       <div className="flex h-9 items-center">
         <div className="capitalize">{e.getValue(key)}</div>
       </div>
@@ -43,7 +43,7 @@ const ColumnsData: ColumnsDataProps[] = [
     key: 'data4',
     name: 'Data 4',
     sort: true,
-    cell: (e: Row<DataProps>, key: string) => (
+    cell: (e: Row<TableDataProps>, key: string) => (
       <div className="flex h-9 items-center">
         <div className="capitalize">{e.getValue(key)}</div>
       </div>
@@ -53,7 +53,7 @@ const ColumnsData: ColumnsDataProps[] = [
     key: 'data5',
     name: 'Data 5',
     sort: true,
-    cell: (e: Row<DataProps>, key: string) => (
+    cell: (e: Row<TableDataProps>, key: string) => (
       <div className="flex h-9 items-center">
         <div className="capitalize">{e.getValue(key)}</div>
       </div>

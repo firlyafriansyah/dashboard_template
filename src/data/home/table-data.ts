@@ -1,4 +1,4 @@
-export type DataProps = {
+export type TableDataProps = {
   id: string | number;
   data1: string;
   data2: string;
@@ -7,7 +7,7 @@ export type DataProps = {
   data5: string;
 };
 
-const DataExample: DataProps[] = [
+const TableData: TableDataProps[] = [
   {
     id: 1,
     data1: 'Data A',
@@ -130,4 +130,4 @@ const DataExample: DataProps[] = [
   },
 ];
 
-export default DataExample;
+export default TableData;
